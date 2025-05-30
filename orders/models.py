@@ -1,6 +1,7 @@
 from django.db import models
 from customers.models import Customer
-from products.models import product
+from products.models import Product
+
 # Create your models here.
 class Order(models.Model):
     LIVE=1 
@@ -18,16 +19,14 @@ class Order(models.Model):
     STATUS_CHOICE=((ORDER_PROCESSED, "ORDER_PROCESSED"),
                    (ORDER_DELIVERED, "ORDER_DELIVERED"), 
                    (ORDER_REJECTED, "ORDER_REJECTED") ) 
-    owner=models.ForeignKey(Customer,on_delete=models.SET_NULL,null=True)
     order_status=models.IntegerField(choices=STATUS_CHOICE)
     delete_status=models.IntegerField (choices=DELETE_CHOICES, default=LIVE )
     created_at=models.DateTimeField (auto_now_add=True) 
-    updated_at=models.DateTimeField (auto_now=True) 
- 
+    updated_at=models.DateTimeField (auto_now=True)  
     owner=models.ForeignKey(Customer,on_delete=models.SET_NULL, related_name='orders',null=True)
 
 class OrderedItem(models.Model):
-    product=models.ForeignKey(product,related_name='added_carts',on_delete=models.SET_NULL,null=True)
+    product=models.ForeignKey(Product,related_name='added_carts',on_delete=models.SET_NULL,null=True)
     quantity=models.IntegerField(default=1)
     owner=models.ForeignKey(Order,on_delete=models.CASCADE,related_name='added_items')
  

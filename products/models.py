@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class product(models.Model):
+class Product(models.Model):
     title=models.CharField(max_length=200)
     LIVE=1 
     DELETE=0 
@@ -9,7 +9,7 @@ class product(models.Model):
     title=models. CharField (max_length=200)  
     price=models.FloatField() 
     description=models.TextField() 
-    #image=models. ImageField(upload_to='media') 
+    image=models. ImageField(upload_to='media/',null=True) 
     priority=models. IntegerField(default=0) 
     delete_status=models. IntegerField (choices=DELETE_CHOICES, default=LIVE) 
     created_at=models.DateTimeField(auto_now_add=True) 

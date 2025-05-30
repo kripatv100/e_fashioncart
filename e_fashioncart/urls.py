@@ -21,7 +21,10 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('products.urls'))
+    path('',include('products.urls')),
+    path('customer/',include('customers.urls')),
+    path('orders/',include('orders.urls')),
+
 
 ]
 

@@ -1,3 +1,3 @@
-# ecommerce website
+#E-commerce website
  with simple features,
  

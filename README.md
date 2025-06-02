@@ -1,3 +1,4 @@
 # E-commerce website
- with simple features,
+python/django project
+ with minimal features,
  
